@@ -1,12 +1,3 @@
-# BookMyShow Clone – Spring Boot Backend
-
-This is the Spring Boot (PostgreSQL) backend for the BookMyShow clone.
-## Requirements
-
-- Java 17+
-- Maven 3.8+
-- PostgreSQL (local or cloud-managed)
-- Environment variables for JWT, Stripe, Resend (see below)
 
 ## Configuration
 
@@ -23,9 +14,50 @@ Set these in the environment or in `application-dev.yml` (do not commit secrets)
 | `RESEND_API_KEY` | Resend API key for emails (OTP, ticket) |
 | `PORT` | Server port (default 8080) |
 
+```bash
+To make it work in your laptop
+
+config:
+1. In client folder
+ create .env
+ REACT_APP_STRIPE_PUBLISHABLE_KEY=xx
+
+2. In spring-backend/src/main/resources folder
+create application.yml
+
+  spring:
+  application:
+    name: bookmyshow-backend
+  datasource:
+    url: ${DATABASE_URL:} 
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: public
+    open-in-view: false
+
+server:
+  port: ${PORT:8081}
+
+app:
+  jwt-secret: ${JWT_SECRET:xxx}
+  jwt-expiration-ms: 86400000
+  frontend-url: ${FRONTEND_URL:http://localhost:3000}
+  stripe-key: ${STRIPE_KEY:}
+  resend-api-key: ${RESEND_API_KEY:}
+
+```
+
 ## Run locally
 
-1. Create a PostgreSQL database and run migrations (Flyway runs on startup):
+1. Create a PostgreSQL database 
 
    ```bash
    createdb bookmyshow
@@ -45,21 +77,17 @@ Set these in the environment or in `application-dev.yml` (do not commit secrets)
    mvn spring-boot:run -Dspring-boot.run.profiles=dev
    ```
 
-4. API base URL: `http://localhost:8080/api` (same paths as Express: `/api/users`, `/api/movies`, etc.).
+4. API base URL: `http://localhost:8081/api` 
 
 ## Point frontend to Spring Boot
 
 In the React app, set:
 
-- `REACT_APP_API_URL=http://localhost:8080/api`
+- `REACT_APP_API_URL=http://localhost:8081/api`
 
 Then run the client; it will use the Spring Boot backend.
 
-## Migrating data from MongoDB
-
-If you need to move existing data from the Express/MongoDB backend to PostgreSQL, see [docs/MONGO_TO_POSTGRES_MIGRATION.md](docs/MONGO_TO_POSTGRES_MIGRATION.md) for a one-time migration approach.
-
-## API (same as Express)
+## APIs
 
 - **Users**: `POST /api/users/register`, `POST /api/users/login`, `GET /api/users/get-current-user`, `PATCH /api/users/forgetpassword`, `PATCH /api/users/resetpassword`
 - **Movies**: CRUD at `/api/movies` and `/api/movies/:id`
