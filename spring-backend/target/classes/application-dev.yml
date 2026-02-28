@@ -1,8 +1,0 @@
-# Dev profile - override with .env or local env vars
-spring:
-  jpa:
-    show-sql: true
-
-app:
-  jwt-secret: ${JWT_SECRET:dev-secret-key}
-  frontend-url: http://localhost:3000

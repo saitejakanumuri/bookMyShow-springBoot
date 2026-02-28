@@ -16,8 +16,8 @@ spring-backend/src/main/resources/application.*
 # Build outputs
 client/build/
 client/dist/
-server/dist/
 .claude
+spring-backend/target/
 
 # Logs
 *.log
