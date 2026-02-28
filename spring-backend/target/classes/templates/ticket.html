@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eceff1; margin: 0; padding: 0; }
+    .email-container { max-width: 600px; margin: 30px auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .header { background: linear-gradient(135deg, #e50914, #b71c1c); color: #fff; padding: 20px; text-align: center; }
+    .header h1 { margin: 0; font-size: 26px; letter-spacing: 1px; }
+    .ticket-details { padding: 25px; }
+    .ticket-details h2 { margin: 0 0 15px; color: #333; font-size: 22px; border-bottom: 2px solid #e50914; display: inline-block; padding-bottom: 4px; }
+    .details { list-style: none; padding: 0; margin: 0; }
+    .details li { margin: 12px 0; font-size: 15px; color: #444; }
+    .details li span { font-weight: 600; color: #111; display: inline-block; min-width: 140px; }
+    .highlight { background: #fbe9e7; padding: 10px; border-radius: 8px; margin-top: 18px; text-align: center; font-weight: bold; font-size: 18px; color: #d32f2f; }
+    .footer { background: #fafafa; text-align: center; padding: 15px; font-size: 13px; color: #888; border-top: 1px dashed #ddd; }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header"><h1>Your Movie Ticket</h1></div>
+    <div class="ticket-details">
+      <h2>Booking Details</h2>
+      <ul class="details">
+        <li><span>Name:</span> #{name}</li>
+        <li><span>Movie:</span> #{movie}</li>
+        <li><span>Theatre:</span> #{theatre}</li>
+        <li><span>Date:</span> #{date}</li>
+        <li><span>Time:</span> #{time}</li>
+        <li><span>Seats:</span> #{seats}</li>
+        <li><span>Transaction ID:</span> #{transactionId}</li>
+      </ul>
+      <div class="highlight">Total Paid: Rs. #{amount}</div>
+    </div>
+    <div class="footer">Enjoy your movie! Thank you for booking with BookMyShow</div>
+  </div>
+</body>
+</html>

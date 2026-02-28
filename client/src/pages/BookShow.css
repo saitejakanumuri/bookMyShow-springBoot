@@ -1,0 +1,68 @@
+/* Seat styles */
+.seat-ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    gap: 5px;
+  }
+  
+  .seat-ul li {
+    margin: 2px;
+  }
+  
+  .seat-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .seat-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .seat-btn.selected {
+    background-color: #4caf50; /* green */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .seat-btn.booked {
+    background-color: #f44336; /* red */
+    color: white;
+    cursor: not-allowed;
+  }
+  
+
+  .card-element-container {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+  }
+  
+  /* Bottom info bar */
+  .bottom-card {
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .payment-box {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fafafa;
+  }
+  
