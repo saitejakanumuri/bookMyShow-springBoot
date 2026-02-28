@@ -18,7 +18,7 @@ public class JwtUtil {
 
     public JwtUtil(AppProperties appProperties) {
         this.appProperties = appProperties;
-        this.key = Keys.hmacShaKeyFor(appProperties.getJwtSecret().getBytes(StandardCharsets.UTF_8));
+        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(appProperties.getJwtSecret()));
     }
 
     public String generateToken(Long userId, String name) {
