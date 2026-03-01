@@ -11,7 +11,7 @@ server/node_modules/
 .env.production.local
 client/.env
 server/.env
-spring-backend/src/main/resources/application.*
+spring-backend/src/main/resources/application-dev.yml
 
 # Build outputs
 client/build/
