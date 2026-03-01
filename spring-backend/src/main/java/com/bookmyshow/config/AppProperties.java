@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @lombok.Setter
 public class AppProperties {
 
-    private String jwtSecret = "change-me";
+    private String jwtSecret = "HJZSYeEsvoBtiJKG3ygOVbM+tsacMobHBFaCguMj7F4=";
     private long jwtExpirationMs = 86400000L; // 1 day
     private String frontendUrl = "http://localhost:3000";
     private String stripeKey = "";

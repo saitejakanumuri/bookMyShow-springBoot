@@ -6,6 +6,7 @@ import Partner from './pages/Partner';
 import Profile from './pages/Profile';
 import SingleMovie from './pages/SingleMovie';
 import BookShow from './pages/BookShow';
+import Logout from './pages/Logout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
@@ -33,6 +34,7 @@ function App() {
       )}
       <BrowserRouter>
       <Routes>
+        <Route path='/logout' element={<ProtectedRoute><Logout/></ProtectedRoute>}></Route>
         <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>

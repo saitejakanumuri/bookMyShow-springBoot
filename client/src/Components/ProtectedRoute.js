@@ -92,7 +92,7 @@ function ProtectedRoute({ children }) {
       console.log("Error in getValidUser:", error);
 
       if(error.response?.status==401) {
-        localStorage.removeItem("token");
+        localStorage.clear();
         
         dispatch(setUser(null));
         console.log("Token expired (401) redireecting to login");
